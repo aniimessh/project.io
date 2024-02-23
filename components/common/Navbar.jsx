@@ -2,6 +2,7 @@
 import { NavBarLinks } from "@/data/constant";
 import Link from "next/link";
 import { useState } from "react";
+import Button from "../button/Button";
 
 const Navbar = () => {
   const [active, setActive] = useState("Home");
@@ -15,7 +16,9 @@ const Navbar = () => {
               <li onClick={() => setActive(item.name)}>
                 <Link
                   href={item.path}
-                  className={`${active === item.name ? "border-b" : ""}`}
+                  className={`${
+                    active === item.name ? "border-b-2 border-tango-500" : ""
+                  } px-3`}
                 >
                   {item.name}
                 </Link>
@@ -23,9 +26,13 @@ const Navbar = () => {
             );
           })}
         </ul>
-        <button className="border border-gray-700 rounded-md px-4 py-3">
-          Find a Table
-        </button>
+        <Button
+          active={false}
+          text="Find a table"
+          padx={4}
+          pady={3}
+          customclass=" rounded-2xl text-tango-300 font-medium "
+        />
       </div>
     </div>
   );
